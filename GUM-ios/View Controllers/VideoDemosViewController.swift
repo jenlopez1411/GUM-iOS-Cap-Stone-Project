@@ -9,7 +9,7 @@ import UIKit
 //import youtube_ios_player_helper_swift
 import Firebase
 //import YouTubePlayer
-import youtube_ios_player_helper
+//import youtube_ios_player_helper
 class VideoDemosViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     var email: String = ""
@@ -19,7 +19,7 @@ class VideoDemosViewController: UIViewController, UITableViewDataSource, UITable
     let db = Firestore.firestore()
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var youtubePlayer: YTPlayerView!
+//    @IBOutlet var youtubePlayer: YTPlayerView!  
 
     @IBOutlet var selectCategoryButton: UIButton!
     @IBOutlet var categoryButtons: [UIButton]!

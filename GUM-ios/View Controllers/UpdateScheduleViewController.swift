@@ -55,7 +55,7 @@ class UpdateScheduleViewController: UIViewController, UIPickerViewDelegate, UIPi
                 let data = document.data() //access the data
                 let schedule = data?["Schedule"] as! NSArray
 
-                print(schedule)
+//                print(schedule)
 
                 self.workout1 = (schedule[0] as? String)!
                 self.workout2 = (schedule[1] as? String)!
@@ -112,8 +112,13 @@ class UpdateScheduleViewController: UIViewController, UIPickerViewDelegate, UIPi
         let workout4Temp = dateFormatter.date(from: workout4)
         let workout5Temp = dateFormatter.date(from: workout5)
         let workout6Temp = dateFormatter.date(from: workout6)
-
+        
+        print("herehere")
+        print(workout1Temp)
+        
         dateFormatter.dateFormat = "HH:mm"
+        
+        
 
         // changing times to 24 hour mode
         var workout1_24 = dateFormatter.string(from: workout1Temp!)
@@ -295,7 +300,7 @@ class UpdateScheduleViewController: UIViewController, UIPickerViewDelegate, UIPi
 
         workouts = [workout1, workout2, workout3, workout4, workout5, workout6]
 
-        print(workouts)
+//        print(workouts)
     }
 }
 

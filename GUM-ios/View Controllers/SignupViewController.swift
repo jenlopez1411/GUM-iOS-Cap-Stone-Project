@@ -2,9 +2,6 @@ import UIKit
 import Firebase
 
 class SignupViewController: UIViewController {
-
-    
-    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var emailTextView: UITextField!
     @IBOutlet weak var passwordTextView: UITextField!
@@ -12,29 +9,9 @@ class SignupViewController: UIViewController {
     var emailinfo: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-//        emailTextView.becomeFirstResponder()
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.hideKeyboardWhenTappedAround()
+        overrideUserInterfaceStyle = .light
     }
-    
-    var isExpand: Bool = false
-    @objc func keyboardAppear () {
-        if !isExpand {
-            self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height + 300)
-            isExpand = true
-        }
-    }
-    
-    @objc func keyboardDisappear () {
-        if isExpand {
-            self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 300)
-            isExpand = false
-        }
-    }
-
     @IBAction func createAccount(_ sender: Any) {
         self.view.endEditing(true)
         let email = emailTextView.text?.trimmingCharacters(in: .whitespaces)
@@ -62,6 +39,10 @@ class SignupViewController: UIViewController {
                         "UnlockedAvatars": ["orange_avatar.png"],
                         "Schedule": ["9:00 AM", "10:00 AM", "11:00 AM", "2:00 PM", "3:00 PM", "4:00 PM"],
                         "Groups": [],
+                        "EasyVideosWatched": [false, false, false, false, false, false, false, false, false, false, false, false, false],
+                        "ModerateVideosWatched": [false, false, false, false, false, false, false, false, false, false, false, false, false],
+                        "VigorousVideosWatched": [false, false, false, false, false, false, false, false, false, false, false, false, false],
+                        
                     ]) { (err) in
                         if let err = err {
                             print("Error writing document: \(err)")
